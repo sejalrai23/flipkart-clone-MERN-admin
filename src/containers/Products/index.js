@@ -38,10 +38,6 @@ function Products() {
     dispatch(addProducts(form));
 
     setShow(false);
-
-
-
-
   }
 
   const optionCategories = (categories, options = []) => {
@@ -84,7 +80,7 @@ function Products() {
               product.products.map((pro, index) =>
                 <tr className="row1" key={index} onClick={() => showProductModal(pro)}>
                   <td>{pro.name}</td>
-                  <td>{pro.category}</td>
+                  <td>{pro.category.name}</td>
                   <td>{pro.price}</td>
                   <td>{pro.quantity}</td>
                   <td>Table cell</td>
@@ -134,7 +130,7 @@ function Products() {
             </Col>
             <Col md="6">
               <label className="key">Catgeory</label>
-              <p className="value">{productDetails.category}</p>
+              <p className="value">{productDetails.category.name}</p>
             </Col>
           </Row>
           <Row>

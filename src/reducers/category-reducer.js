@@ -80,6 +80,45 @@ export default (state = initState, action) => {
         error: action.payload.error
       }
       break;
+    case CategoryConstants.UPDATE_CAT_REQUEST:
+      state = {
+        ...state,
+        loading: true
+    
+      }
+      break;
+    case CategoryConstants.UPDATE_CAT_SUCCESS:
+      state = {
+        ...state,
+        loading: false
+      }
+      break;
+    case CategoryConstants.UPDATE_CAT_FAILURE:
+      state = {
+        ...state,
+        loading:false,
+        error: action.payload.error
+      }
+      break;
+    case CategoryConstants.DELETE_CAT_REQUEST:
+      state = {
+        ...state,
+        loading: true
+      }
+      break;
+    case CategoryConstants.DELETE_CAT_SUCCESS:
+      state = {
+        ...state,
+        loading: false
+      }
+      break;
+    case CategoryConstants.DELETE_CAT_FAILURE:
+      state = {
+        ...state,
+        loading:false,
+        error: action.payload.error
+      }
+      break;
 
 
 

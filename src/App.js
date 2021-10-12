@@ -9,6 +9,7 @@ import Products from "../src/containers/Products/index";
 import Orders from "../src/containers/Orders/index";
 import Category from "../src/containers/Category/index";
 import Layout from "../src/components/layout/index";
+import Page from "../src/containers/TypePage/index";
 import PrivateRoute from './components/HOC/PrivateRoute';
 import { isUserLoggedIn } from "./actions";
 import { getAllCategory, addCategory } from "./actions/category-action";
@@ -23,14 +24,18 @@ const App = (props) => {
     if (!auth.authenticate) {
       dispatch(isUserLoggedIn());
     }
-    dispatch(getInitialData());
+    if (auth.authenticate) {
+      dispatch(getInitialData());
+    }
 
 
-  }, []);
+
+  }, [auth.authenticate]);
   return (
     <div className="app">
       <Switch>
         <PrivateRoute exact path="/" component={Home} />
+        <PrivateRoute path="/page" component={Page} />
         <PrivateRoute path="/products" component={Products} />
         <PrivateRoute path="/orders" component={Orders} />
         <PrivateRoute path="/category" component={Category} />
